@@ -46,12 +46,16 @@ export default class CustomerServerice {
                 TableName: this.Tablename,
                 Key: { customersId: id },
                 UpdateExpression:
-                    "set #status = :status",
+                    "set #status = :status, #name = :name, #lastname = :lastname",
                 ExpressionAttributeNames: {
                     "#status": "status",
+                    "#name": "name",
+                    "#lastname": "lastname",
                 },
                 ExpressionAttributeValues: {
                     ":status": customer.status,
+                    ":name": customer.name,
+                    ":lastname": customer.lastname,
                 },
                 ReturnValues: "ALL_NEW",
             })
@@ -70,4 +74,23 @@ export default class CustomerServerice {
 
     }
 
+    async addCredit(id: string, customer: Partial<Customer>): Promise<Customer> {
+        const updated = await this.docClient
+            .update({
+                TableName: this.Tablename,
+                Key: { customersId: id },
+                UpdateExpression:
+                    "set #creditAvailable = :creditAvailable",
+                ExpressionAttributeNames: {
+                    "#creditAvailable": "creditAvailable",
+                },
+                ExpressionAttributeValues: {
+                    ":creditAvailable": customer.creditAvailable||77,
+                },
+                ReturnValues: "ALL_NEW",
+            })
+            .promise();
+
+        return updated.Attributes as Customer;
+    }
 }

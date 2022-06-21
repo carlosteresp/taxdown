@@ -34,6 +34,7 @@ export const createCustomer = middyfy(async (event: APIGatewayProxyEvent): Promi
             customersId: id,
             name: event.body.name,
             lastname: event.body.lastname,
+            creditAvailable: event.body.creditAvailable,
             createdAt: new Date().toISOString(),
             status: false
         })
@@ -66,7 +67,11 @@ export const getCustomer = middyfy(async (event: APIGatewayProxyEvent): Promise<
 export const updateCustomer = middyfy(async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     const id = event.pathParameters.id;
     try {
-        const customer = await customersService.updateCustomer(id, { status: event.body.status })
+        const customer = await customersService.updateCustomer(id, { 
+            name: event.body.name,
+            lastname: event.body.lastname,
+            status: event.body.status 
+        })
         return formatJSONResponse({
             customer, id
         });
@@ -82,6 +87,23 @@ export const deleteCustomer = middyfy(async (event: APIGatewayProxyEvent): Promi
     const id = event.pathParameters.id;
     try {
         const customer = await customersService.deleteCustomer(id)
+        return formatJSONResponse({
+            customer, id
+        });
+    } catch (e) {
+        return formatJSONResponse({
+            status: 500,
+            message: e
+        });
+    }
+})
+
+export const addCredit = middyfy(async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+    const id = event.pathParameters.id;
+    try {
+        const customer = await customersService.addCredit(id, { 
+            creditAvailable: event.body.creditAvailable || 69
+        })
         return formatJSONResponse({
             customer, id
         });

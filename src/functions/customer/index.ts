@@ -85,3 +85,20 @@ export const deleteCustomer = {
       },
   ],
 };
+
+export const addCredit = {
+  handler: `${handlerPath(__dirname)}/handler.addCredit`,
+  events: [
+      {
+          http: {
+              method: 'put',
+              path: 'credit/{id}',
+              request: {
+                schemas: {
+                  'application/json': schema,
+                },
+              },
+          },
+      },
+  ],
+};

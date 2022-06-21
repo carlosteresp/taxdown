@@ -1,7 +1,6 @@
 import type { AWS } from '@serverless/typescript';
 
-//import hello from '@functions/hello';
-import {getAllCustomer, createCustomer, getCustomer, updateCustomer, deleteCustomer} from '@functions/customer';
+import {getAllCustomer, createCustomer, getCustomer, updateCustomer, deleteCustomer, addCredit } from '@functions/customer';
 
 const serverlessConfiguration: AWS = {
   service: 'taxdown',
@@ -38,7 +37,7 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { /*hello,*/ getAllCustomer, createCustomer, getCustomer, updateCustomer, deleteCustomer },
+  functions: { getAllCustomer, createCustomer, getCustomer, updateCustomer, deleteCustomer, addCredit },
   package: { individually: true },
   custom: {
     esbuild: {
