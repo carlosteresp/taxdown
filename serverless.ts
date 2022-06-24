@@ -5,9 +5,10 @@ import {getAllCustomer, createCustomer, getCustomer, updateCustomer, deleteCusto
 const serverlessConfiguration: AWS = {
   service: 'taxdown',
   frameworkVersion: '3',
-  plugins: ['serverless-esbuild', 'serverless-offline', 'serverless-dynamodb-local'],
+  plugins: ['serverless-esbuild', 'serverless-offline', 'serverless-dynamodb-local', 'serverless-mocha-plugin'],
   provider: {
     name: 'aws',
+    region: 'us-east-1',
     runtime: 'nodejs14.x',
     apiGateway: {
       minimumCompressionSize: 1024,
@@ -16,6 +17,7 @@ const serverlessConfiguration: AWS = {
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
+      AWS_REGION:'us-east-1',
     },
     iam: {
       role: {

@@ -1,10 +1,47 @@
 # Como usar la api
 Ejecuta los siguientes comandos
+Parte 1
 ```
-npm -i
+npm install -g serverless
+```
+
+Parte 2
+```
+npm i
+npm install --save serverless-dynamodb-local
 sls dynamodb install
-sls offline start
 ```
+
+Parte 3
+```
+sls offline start 
+
+ó
+
+sls offline
+sls dynamodb start --migrate
+```
+
+
+ejecutar pruebas
+```
+
+```
+
+
+
+desplegar en aws
+```
+sls deploy
+```
+
+Notas
+crear funcion
+sls create function -f myFunction --handler functions/myFunction/index.handler
+
+
+creat test:
+sls create test -f functionName
 
 
 

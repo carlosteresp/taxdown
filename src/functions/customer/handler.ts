@@ -102,7 +102,7 @@ export const addCredit = middyfy(async (event: APIGatewayProxyEvent): Promise<AP
     const id = event.pathParameters.id;
     try {
         const customer = await customersService.addCredit(id, { 
-            creditAvailable: event.body.creditAvailable || 69
+            creditAvailable: event.body.creditAvailable
         })
         return formatJSONResponse({
             customer, id
