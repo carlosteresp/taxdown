@@ -40,10 +40,11 @@ crear funcion
 sls create function -f myFunction --handler functions/myFunction/index.handler
 
 
-creat test:
+crear test:
 sls create test -f functionName
 
-
+invocar test
+sls invoke test
 
 # Serverless - AWS Node.js Typescript
 
