@@ -12,7 +12,7 @@ npm install --save serverless-dynamodb-local
 sls dynamodb install
 ```
 
-Parte 3
+Parte 3 - levantar lambdas en local
 ```
 sls offline start 
 
@@ -23,9 +23,9 @@ sls dynamodb start --migrate
 ```
 
 
-ejecutar pruebas
+ejecutar pruebas con lambda en vivo
 ```
-
+sls invoke test --live
 ```
 
 
