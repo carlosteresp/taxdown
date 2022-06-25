@@ -4,7 +4,7 @@
   "description": "Reto Tecnico Backend Senior - Taxdown",
   "main": "serverless.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ./test"
   },
   "engines": {
     "node": ">=14.15.0"
