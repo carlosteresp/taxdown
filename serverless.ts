@@ -1,11 +1,11 @@
 import type { AWS } from '@serverless/typescript';
 
-import {getAllCustomer, createCustomer, getCustomer, updateCustomer, deleteCustomer, addCredit } from '@functions/customer';
+import {getAllCustomer, createCustomer, getCustomer, updateCustomer, deleteCustomer, addCredit, getAllCustomerByCredit } from '@functions/customer';
 
 const serverlessConfiguration: AWS = {
   service: 'taxdown',
   frameworkVersion: '3',
-  plugins: ['serverless-esbuild', 'serverless-offline', 'serverless-dynamodb-local', 'serverless-mocha-plugin'],
+  plugins: ['serverless-auto-swagger', 'serverless-esbuild', 'serverless-offline', 'serverless-dynamodb-local', 'serverless-mocha-plugin'],
   provider: {
     name: 'aws',
     region: 'us-east-1',
@@ -39,9 +39,13 @@ const serverlessConfiguration: AWS = {
     },
   },
   // import the function via paths
-  functions: { getAllCustomer, createCustomer, getCustomer, updateCustomer, deleteCustomer, addCredit },
+  functions: { getAllCustomer, createCustomer, getCustomer, updateCustomer, deleteCustomer, addCredit, getAllCustomerByCredit },
   package: { individually: true },
   custom: {
+    autoswagger:{
+        generateSwaggerOnDeploy: false,
+        basePath: '/dev'
+    },
     esbuild: {
       bundle: true,
       minify: false,

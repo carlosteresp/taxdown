@@ -14,3 +14,4 @@ jspm_packages
 package-lock.json
 .dynamodb/
 yarn-error.log
+**.DS_Store

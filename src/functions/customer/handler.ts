@@ -114,3 +114,10 @@ export const addCredit = middyfy(async (event: APIGatewayProxyEvent): Promise<AP
         });
     }
 })
+
+export const getAllCustomerByCredit = middyfy(async (): Promise<APIGatewayProxyResult> => {
+    const customers = await customersService.getAllCustomerByCredit();
+    return formatJSONResponse({
+        customers
+    })
+})

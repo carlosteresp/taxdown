@@ -85,12 +85,34 @@ export default class CustomerServerice {
                     "#creditAvailable": "creditAvailable",
                 },
                 ExpressionAttributeValues: {
-                    ":creditAvailable": customer.creditAvailable||77,
+                    ":creditAvailable": customer.creditAvailable,
                 },
                 ReturnValues: "ALL_NEW",
             })
             .promise();
 
         return updated.Attributes as Customer;
+    }
+
+    async getAllCustomerByCredit(): Promise<Customer[]> {
+        const customers = await this.docClient.query({
+            TableName: this.Tablename,
+            KeyConditionExpression: '#status = :status',
+            //Limit: 1,
+            ScanIndexForward: false,    // true = ascending, false = descending
+            ExpressionAttributeNames: {
+                "#status":"status",
+                //"#creditAvailable":"creditAvailable",
+                //"#customersId":"customersId"
+            },
+            ExpressionAttributeValues: {
+                ":status": '1',
+                //":creditAvailable": '0',
+                //":customersId":"0"
+            },
+
+        }).promise()
+        return customers.Items as Customer[];
+
     }
 }

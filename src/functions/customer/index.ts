@@ -102,3 +102,20 @@ export const addCredit = {
       },
   ],
 };
+
+export const getAllCustomerByCredit = {
+  handler: `${handlerPath(__dirname)}/handler.getAllCustomerByCredit`,
+  events: [
+      {
+          http: {
+              method: 'get',
+              path: 'credit/',
+              request: {
+                schemas: {
+                  'application/json': schema,
+                },
+              },
+          },
+      },
+  ],
+};
