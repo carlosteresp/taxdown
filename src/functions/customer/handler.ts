@@ -36,7 +36,7 @@ export const createCustomer = middyfy(async (event: APIGatewayProxyEvent): Promi
             lastname: event.body.lastname,
             creditAvailable: event.body.creditAvailable,
             createdAt: new Date().toISOString(),
-            status: false
+            status: "0"
         })
         return formatJSONResponse({
             customer

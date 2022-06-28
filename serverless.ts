@@ -74,16 +74,40 @@ const serverlessConfiguration: AWS = {
           AttributeDefinitions: [{
             AttributeName: "customersId",
             AttributeType: "S",
+          },{
+            AttributeName: "status",
+            AttributeType: "S",
+          },{
+            AttributeName: "creditAvailable",
+            AttributeType: "N",
           }],
           KeySchema: [{
             AttributeName: "customersId",
             KeyType: "HASH"
-          }],
+          },
+          ],
           ProvisionedThroughput: {
             ReadCapacityUnits: 1,
             WriteCapacityUnits: 1
           },
-          
+          GlobalSecondaryIndexes:[{
+            IndexName: "status-creditAvailable-Index",
+            KeySchema: [{
+              AttributeName: "status",
+              KeyType: "HASH"
+            }, {
+              AttributeName: "creditAvailable",
+              KeyType: "RANGE"
+            }, ],
+            Projection: {
+              ProjectionType: 'ALL'
+            },
+            ProvisionedThroughput: {
+              ReadCapacityUnits: 1,
+              WriteCapacityUnits: 1
+            },
+          }]
+
         }
       }
     }

@@ -97,18 +97,15 @@ export default class CustomerServerice {
     async getAllCustomerByCredit(): Promise<Customer[]> {
         const customers = await this.docClient.query({
             TableName: this.Tablename,
+            IndexName: "status-creditAvailable-Index",
             KeyConditionExpression: '#status = :status',
             //Limit: 1,
             ScanIndexForward: false,    // true = ascending, false = descending
             ExpressionAttributeNames: {
                 "#status":"status",
-                //"#creditAvailable":"creditAvailable",
-                //"#customersId":"customersId"
             },
             ExpressionAttributeValues: {
                 ":status": '1',
-                //":creditAvailable": '0',
-                //":customersId":"0"
             },
 
         }).promise()
