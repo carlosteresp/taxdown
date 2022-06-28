@@ -44,7 +44,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Carlos David\",\r\n    \"lastname\": \"Terrones España\",\r\n    \"creditAvailable\": 0\r\n}",
+					"raw": "{\r\n    \"name\": \"Carlos\",\r\n    \"lastname\": \"Malqui\",\r\n    \"creditAvailable\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -73,7 +73,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Carlos David - Crixus\",\r\n    \"lastname\": \"Terrones España\",\r\n    \"status\": true\r\n}",
+					"raw": "{\r\n    \"name\": \"Carlos Impostor\",\r\n    \"lastname\": \"Malqui Huerta\",\r\n    \"status\": \"0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -81,7 +81,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/dev/customer/99fa14e8-d56a-4a6a-949e-82e29c7952f6",
+					"raw": "http://localhost:3000/dev/customer/1d8d0a46-a09b-4074-a27b-2af24afb0313",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -90,7 +90,7 @@
 					"path": [
 						"dev",
 						"customer",
-						"99fa14e8-d56a-4a6a-949e-82e29c7952f6"
+						"1d8d0a46-a09b-4074-a27b-2af24afb0313"
 					]
 				}
 			},
@@ -103,7 +103,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -111,7 +111,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/dev/customer/c8ceb412-e77d-470e-a6a2-6c46d0719d0e",
+					"raw": "http://localhost:3000/dev/customer/1d8d0a46-a09b-4074-a27b-2af24afb0313",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -120,7 +120,7 @@
 					"path": [
 						"dev",
 						"customer",
-						"c8ceb412-e77d-470e-a6a2-6c46d0719d0e"
+						"1d8d0a46-a09b-4074-a27b-2af24afb0313"
 					]
 				}
 			},
@@ -132,7 +132,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/dev/customer/7cbb6839-7f29-4494-8a03-afe018a3f434",
+					"raw": "http://localhost:3000/dev/customer/154e94aa-5ff8-4080-8b96-f4868a618314",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -141,7 +141,7 @@
 					"path": [
 						"dev",
 						"customer",
-						"7cbb6839-7f29-4494-8a03-afe018a3f434"
+						"154e94aa-5ff8-4080-8b96-f4868a618314"
 					]
 				}
 			},
@@ -154,7 +154,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"creditAvailable\": 999\r\n}",
+					"raw": "{\r\n    \"creditAvailable\": 1300\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -162,7 +162,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/dev/credit/99fa14e8-d56a-4a6a-949e-82e29c7952f6",
+					"raw": "http://localhost:3000/dev/credit/154e94aa-5ff8-4080-8b96-f4868a618314",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -171,7 +171,7 @@
 					"path": [
 						"dev",
 						"credit",
-						"99fa14e8-d56a-4a6a-949e-82e29c7952f6"
+						"154e94aa-5ff8-4080-8b96-f4868a618314"
 					]
 				}
 			},
@@ -195,7 +195,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/dev/customer",
+					"raw": "http://localhost:3000/dev/credit",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -203,7 +203,7 @@
 					"port": "3000",
 					"path": [
 						"dev",
-						"customer"
+						"credit"
 					]
 				}
 			},

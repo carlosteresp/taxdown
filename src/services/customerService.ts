@@ -5,6 +5,7 @@ import Customer from "../model/Customer";
 export default class CustomerServerice {
 
     private Tablename: string = "CustomersTable";
+    private TablenameGSI: string = "status-creditAvailable-Index";
 
     constructor(private docClient: DocumentClient) { }
 
@@ -97,18 +98,15 @@ export default class CustomerServerice {
     async getAllCustomerByCredit(): Promise<Customer[]> {
         const customers = await this.docClient.query({
             TableName: this.Tablename,
+            IndexName: this.TablenameGSI,
             KeyConditionExpression: '#status = :status',
             //Limit: 1,
             ScanIndexForward: false,    // true = ascending, false = descending
             ExpressionAttributeNames: {
                 "#status":"status",
-                //"#creditAvailable":"creditAvailable",
-                //"#customersId":"customersId"
             },
             ExpressionAttributeValues: {
                 ":status": '1',
-                //":creditAvailable": '0',
-                //":customersId":"0"
             },
 
         }).promise()
